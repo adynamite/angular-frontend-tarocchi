@@ -1,0 +1,22 @@
+/* Wrapper to Center the Typewriter */
+.wrapper {
+    color: #fff;
+	font-family: 'Dancing Script', cursive;
+	font-size: 40px;
+	display: flex;
+	justify-content: center;
+    align-items: center;
+    
+}
+
+.centeredBox {
+	width: 100%;
+	text-align: center;
+}
+
+/* The Typewriter */
+
+
+.cursor {
+	border-left: 4px solid white;
+}

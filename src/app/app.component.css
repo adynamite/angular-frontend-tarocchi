@@ -1,0 +1,7 @@
+body {
+    height: 100vh;
+    
+    background-image: rgb(192,56,60);
+    background: -webkit-radial-gradient(bottom center,rgba(192,56,60,1),rgba(100,21,68,1));
+    background: radial-gradient(at bottom center,rgba(192,56,60,1),rgba(100,21,68,1));
+      }
