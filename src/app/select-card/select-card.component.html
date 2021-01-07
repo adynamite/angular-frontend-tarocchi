@@ -1,1 +1,166 @@
-<p>funziona</p>
+<br>
+
+<h5 class="text-white text-center">Prima di cominciare con la lettura delle carte, ti devi concentrare e riflettere a una domanda ben precisa. A quel punto potrai scegliere 3 carte dal mazzo qui sotto e consultarne gratuitamente l'interpretazione.</h5>
+
+<br>
+<!-- View cards to select -->
+<div id="cards">
+    <div id=" cards">
+        <!-- <h2>Select cards</h2> -->
+        <table wt-responsive-table>
+            <tr>
+                <!-- List of cards -->
+                <td *ngFor="let i of [0, 1, 2, 3, 4, 5, 6, 7, 8]">
+                    <img [class.image]="selectedCards[i] == '../assets/images/cartaF.png'" [src]="selectedCards[i]" alt="back-tarot-card" class="responsive" (click)="(selectCard(i))">
+                </td>
+            </tr>
+        </table>
+    </div>
+
+</div>
+
+<br>
+    <div class="container-fluid">
+    <div class="row justify-content-center">
+        <div class="col col-lg-2 ">
+            <p class="text-center text-white">Passato</p>
+        </div>
+        <div class="col col-lg-2 ">
+            <p class="text-center text-white">Presente</p>
+        </div>
+        <div class="col col-lg-2  ">
+            <p class="text-center text-white">Futuro</p>
+        </div>
+        </div>
+
+    </div>
+    
+
+
+    <!-- Selected cards -->
+    <div class="container-fluid">
+    <div class="row justify-content-center" id="selected-cards" class="center">
+       
+            <div class="col col-lg-2 card" >
+                <img class="nascondi" [src]="display[0]">
+                <div class="back"><img [src]="passato"></div>
+            </div>
+        
+                <div class="col col-lg-2 card" >
+                    <img class="nascondi" [src]="display[1]">
+                    <div class="back"><img [src]="presente" ></div>
+                </div>
+        
+        
+                <div class="col col-lg-2 card" >
+                    <img class="nascondi" [src]="display[2]">
+                    <div class="back"><img [src]="futuro" ></div>
+                </div>
+            
+
+    </div></div>
+
+    <br>
+
+    <div class="row justify-content-center">
+    <button type="button" class="btn btn-outline-light" id="button" disabled (click)="getRandomCards()" onClick = "this.style.visibility= 'hidden';">Scopri le carte</button>
+    
+    </div>
+
+    <br>
+
+    
+
+    <div class="row justify-content-center">
+        <button type="button" (click)="controlloLogin()" class="btn btn-outline-light" id="attiva" disabled data-toggle="modal" data-target=".modal-lettura">Scopri la tua lettura</button>
+    </div>
+
+    <br><br>
+
+    <div id="lettura" class="modal fade modal-lettura" tabindex="-1" role="dialog"  aria-hidden="true">
+<div class="modal-dialog modal-lg modal-content">
+    <div class="modal-header">
+        <h5 class="modal-title w-100 text-center testoMagico">I risultati della tua lettura</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span style="color:  #FFC94C;" aria-hidden="true">&times;</span>
+        </button>
+      </div>
+
+
+      <div class="modal-body">
+    <div class="text-center">
+
+        <h4>La carta: 
+        <span class="testoMagico2">{{nomePassato}}</span> ti dice: 
+        </h4>
+        <br>
+        <p>{{letturaPassato}}</p>
+
+    </div>
+
+    <div class="text-center">
+        <h4>La carta: 
+            <span class="testoMagico2">{{nomePresente}}</span> ti dice: 
+            </h4>
+        <br>
+        <p>{{letturaPresente}}</p>
+
+    </div>
+
+    <div class="text-center">
+        <h4>La carta: 
+            <span class="testoMagico2">{{nomeFuturo}}</span> ti dice: 
+            </h4>
+        <br>
+        <p>{{letturaFuturo}}</p>
+
+    </div>
+
+
+    <div class="modal-body">
+        
+        <a href="javascript:window.location.href=window.location.href">
+         <app-sphere></app-sphere></a>
+
+        </div>
+
+
+</div>
+
+ </div>
+
+</div>
+
+<div id="popupcookie" class="modal fade modal-lettura" tabindex="-1" role="dialog"  aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title w-100 text-center testoMagico">I risultati della tua lettura</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+    
+          <div class="modal-body text-center">
+        
+          
+            <h4 class=" w-100 testoMagico2" > Registrati o Accedi per nuove letture e fuzionalità</h4>
+            <a  data-dismiss="modal"  routerLink="/login"> <button type="submit" class="btn login">Vai</button></a>
+                
+              
+    </div>
+    
+     </div>
+    
+    </div>
+
+
+
+    <br><br>
+
+
+
+    
+
+
+        
+       

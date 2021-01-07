@@ -1,0 +1,121 @@
+.responsive {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+}
+
+.disabled {
+    pointer-events: none;
+}
+
+.enabled {
+    pointer-events: all;
+}
+
+.center {
+    display: flex;
+    justify-content: center;
+
+}
+
+
+
+.image:hover {
+    transform: scale(1.2);
+    width:100%;
+}
+
+.image {
+    pointer-events: all;
+}
+
+img {
+    pointer-events: none;
+    object-fit:cover;
+    width:100%;
+    height: auto;
+    border-radius: 5px;
+}
+
+
+
+.card {
+
+    -webkit-transition: -webkit-transform 1.5s;
+    -moz-transition: -moz-transform 1.5s;
+    -o-transition: -o-transform 1.5s;
+    transition: transform 1.5s;
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -o-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    background-color: transparent;
+  }
+  .card div {
+   
+    position: absolute;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+ 
+  .card .back {
+    background-color: transparent;
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+  .card.flipped {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg);
+  }
+
+.card .nascondi{
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    -o-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.testoMagico {
+    color: #FFC94C;
+    animation: flicker linear 3s infinite;
+    -webkit-animation: flicker linear 3s infinite;
+  }
+
+  .testoMagico2 {
+    color: #c0383c;
+    animation: flicker linear 3s infinite;
+    -webkit-animation: flicker linear 3s infinite;
+
+  }
+
+  @keyframes flicker
+{
+0% {opacity:0;}
+10% {opacity:.5;}
+13% {opacity:0;}
+20% {opacity:.5;}
+25% {opacity:1;}
+}
+
+.modal-header{
+    background-image: rgb(192,56,60);
+    background: -webkit-radial-gradient(bottom center,rgba(192,56,60,1),rgba(100,21,68,1));
+    background: radial-gradient(at bottom center,rgba(192,56,60,1),rgba(100,21,68,1));
+}
+
+.modal-title{
+    font-family: 'Dancing Script', cursive;
+    font-size: 2em;
+}
+
+.login{
+  background:#FFC94C;
+  color:#ffff;
+}
+

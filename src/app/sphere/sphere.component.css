@@ -1,6 +1,6 @@
 .small {
-    padding-top: 10%;
-    margin-bottom: -20%;
+    padding-top: 5%;
+    margin-bottom: -10%;
     transform: scale(0.2, 0.2);
     -ms-transform: scale(0.8, 0.8); /* IE 9 */
     -webkit-transform: scale(0.2, 0.2); /* Safari and Chrome */

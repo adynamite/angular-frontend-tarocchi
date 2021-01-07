@@ -2,9 +2,15 @@
 nav {
     padding-left: 5em;
     padding-right: 5em;
+    
 }
 
 .nav-item{
     padding:2px;
     margin-left: 7px;
+    
+}
+
+.nav-link:hover{
+     color: #FFC94C!important;
 }

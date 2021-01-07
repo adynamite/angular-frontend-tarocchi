@@ -36,8 +36,7 @@ export class SphereComponent implements OnInit {
       });
     };
 
-    // Once the callback is arranged then set the source of the image
-    imageObj.src = 'http://www.pat-cooney.com/images/Smoke.png';
+  
 
     // A function to create a particle object.
     function Particle(this: any, context:any) {

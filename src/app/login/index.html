@@ -1,1 +1,68 @@
-<p>login works!</p>
+<div class="form-modal">
+    
+    <div class="form-toggle">
+        <button id="login-toggle" (click)="toggleLogin()">Login</button>
+        <button id="signup-toggle" (click)="toggleSignup()">Registrati</button>
+    </div>
+
+    <a class="logo" href="/index.html">
+        <img src="../assets/images/logo.png" width="160px"  alt="Arcana">
+    </a>
+
+    <div id="login-form">
+        <form [formGroup]="loginForm" (ngSubmit)="login()">
+            
+            <input type="text" id="emailLogin" placeholder="Inserisci l'email*"  [formControlName]="'emailLogin'" name="emailLogin" required autofocus/>
+            <span class="testo" *ngIf="!loginForm.get('emailLogin')!.valid && loginForm.get('emailLogin')!.touched">
+                Ti prego di inserire un'email valida
+             </span>
+             
+
+            <input type="password" id="passwordLogin" placeholder="Inserisci la password*"  [formControlName]="'passwordLogin'" required />
+            <span class="testo" *ngIf="!loginForm.get('passwordLogin')!.valid && loginForm.get('passwordLogin')!.touched">
+                Ti prego di inserire una password valida
+              </span>
+
+            <button type="submit" class="btn login">Login</button>
+            <div class="login-failed" *ngIf='this.isError'>
+                <p class="testo">Non è stato possibile accedere. Ti prego di verificare le tue credenziali e riprovare.</p>   
+           </div>
+           <div class="login-failed" [ngStyle]="{'background-color': 'green'}" *ngIf="this.registerSuccessMessage.length > 0">
+               <p class="register-success-text">{{registerSuccessMessage}}</p>   
+          </div>   
+
+            <p><a href="javascript:void(0)">Hai dimenticato la password?</a></p>
+            <hr/>
+
+            
+        </form>
+    </div>
+
+    <div id="signup-form">
+        <form [formGroup]="signupForm" (ngSubmit)="signup()">
+            <input type="email" id="emailSignup" placeholder="Inserisci la tua email*" [formControlName]="'emailSignup'" name="emailSignup" required autofocus/>
+            <span class="testo" *ngIf="!signupForm.get('emailSignup')!.valid && signupForm.get('emailSignup')!.touched">
+                Ti prego di inserire un'email valida
+            </span> 
+
+            <input type="text" id ="usernameSignup" placeholder="Inserisci il tuo nome*" [formControlName]="'usernameSignup'" required autofocus/>
+            <span class="testo" *ngIf="!signupForm.get('usernameSignup')!.valid && signupForm.get('usernameSignup')!.touched">
+                Ti prego di inserire un nome valido
+            </span> 
+
+            <input type="password" id="passwordSignup" placeholder="Inserisci la tua password*" [formControlName]="'passwordSignup'" required/>
+            <span class="testo" *ngIf="!signupForm.get('passwordSignup')!.valid && signupForm.get('passwordSignup')!.touched">
+                Ti prego di inserire una password valida
+            </span> 
+
+
+            <button type="submit" class="btn signup">Crea nuovo account</button>
+
+            <p>Clickando su <strong>Crea nuovo accounto</strong>, significa che accetti <a href="javascript:void(0)">i nostri termini</a>.</p>
+            <hr/>
+            
+            
+        </form>
+    </div>
+
+</div>

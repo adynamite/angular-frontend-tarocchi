@@ -1,32 +1,48 @@
 <nav class="navbar navbar-expand-sm transparent navbar-dark justify-content-end">
    
-    <a class="navbar-brand" href="/src/index.html">
+    <a class="navbar-brand" href="/index.html">
         <img src="../assets/images/logo.png" width="160px"  alt="Arcana">
     </a>
 
 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav">
     <span class="navbar-toggler-icon"></span>
 </button>
-<div class="collapse navbar-collapse" id="navbarNav" style="padding-top: 1em;">
+<div class="collapse text-center navbar-collapse" id="navbarNav" style="padding-top: 1em;">
     <ul class="navbar-nav mr-auto">
         <li class="nav-item active">
             <a class="nav-link" routerLink="">Home</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Storia dei tarocchi</a>
+            <a class="nav-link" routerLink="/storia">Storia dei tarocchi</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="#">Significato delle carte</a>
-        </li>
-        
+            <a class="nav-link" routerLink="/lettura">Lettura delle carte</a>
+        </li>  
     </ul>
-    <ul class="navbar-nav">
+
+    <ul *ngIf="isLoggedIn" class="navbar-nav  text-center ">
+
+        <!-- Dropdown -->
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+            {{username}}
+        </a>
+        <div class="dropdown-menu collapse text-center">
+           <button class="dropdown-item" (click)="goToUserProfile()" ngbDropdownItem>Profilo</button>
+         <button class="dropdown-item" (click)="logout()" ngbDropdownItem>Logout</button>
+         
+        </div>
+      </li>
+      
+      
+    </ul>     
+
+
+    <ul *ngIf="!isLoggedIn" class="navbar-nav">
         <li class="nav-item">
             <a class="nav-link" routerLink="/login">Login</a>
         </li>
-        <li class="nav-item">
-            <a class="nav-link" routerLink="/register">Registrazione</a>
-        </li>
+       
     </ul>
 </div>
 

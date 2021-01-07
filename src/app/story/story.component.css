@@ -1,0 +1,27 @@
+h3,p{
+    color: white;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+p{
+    font-size: large;
+}
+
+h3{
+    font-weight: 600;
+    text-underline-position: below;
+}
+
+img {
+    max-width: 350px;
+    display:block;
+    margin:0.1em auto;
+    text-align:center;
+    border-radius: 10px;
+    max-height: 300px;
+}
+
+.giallo{
+    color: #FFC94C;
+}
