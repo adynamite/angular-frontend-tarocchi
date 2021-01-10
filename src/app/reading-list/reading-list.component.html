@@ -1,0 +1,72 @@
+<h2 >Le tue letture: </h2>
+<table  class = "table table-striped">
+    <thead>
+        <tr>
+            <th> Lettura</th>
+            <th>Data</th>
+            <th></th> 
+        </tr>
+    </thead>
+    <tbody >
+       
+        <tr *ngFor = "let reading of readings; let i = index">
+            <td>{{i+1}}</td>
+            <td>{{reading.date|date:'dd-MM-yyyy'}}</td>
+          
+           <td>
+            <button type="button" class="btn btn-outline-light" (click)="prendiIndice(i)" data-toggle="modal" data-target=".modal-lettura"> Mostra</button> 
+                
+            </td>
+        </tr>
+  
+    </tbody>
+</table>
+
+<div  class="modal fade modal-lettura" tabindex="-1" role="dialog"  aria-hidden="true" >
+    <div class="modal-dialog modal-lg modal-content" *ngFor = "let reading of readings; let j = index" >
+
+        <div class="modal-header"*ngIf="j==value">
+            <h5 class="modal-title w-100 text-center testoMagico">I risultati della tua lettura</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span style="color:  #FFC94C;" aria-hidden="true">&times;</span>
+            </button>
+          </div>
+    
+    
+          <div class="modal-body"*ngIf="j==value">
+        <div class="text-center">
+    
+            <h4>La carta: 
+            <span class="testoMagico2">{{reading.cartaPassato}}</span> ti dice: 
+            </h4>
+            <br>
+            <p>{{reading.letturaPassato}}</p>
+    
+        </div>
+    
+        <div class="text-center">
+            <h4>La carta: 
+                <span class="testoMagico2">{{reading.cartaPresente}}</span> ti dice: 
+                </h4>
+            <br>
+            <p>{{reading.letturaPresente}}</p>
+    
+        </div>
+    
+        <div class="text-center">
+            <h4>La carta: 
+                <span class="testoMagico2">{{reading.cartaFuturo}}</span> ti dice: 
+                </h4>
+            <br>
+            <p>{{reading.letturaFuturo}}</p>
+    
+        </div>
+    
+    
+    
+    
+    </div>
+    
+     </div>
+    
+    </div>

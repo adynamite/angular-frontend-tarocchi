@@ -1,0 +1,41 @@
+
+.testoMagico {
+    color: #FFC94C;
+    animation: flicker linear 3s infinite;
+    -webkit-animation: flicker linear 3s infinite;
+  }
+
+  .testoMagico2 {
+    color: #c0383c;
+    animation: flicker linear 3s infinite;
+    -webkit-animation: flicker linear 3s infinite;
+
+  }
+
+  @keyframes flicker
+{
+0% {opacity:0;}
+10% {opacity:.5;}
+13% {opacity:0;}
+20% {opacity:.5;}
+25% {opacity:1;}
+}
+
+.modal-header{
+    background-image: rgb(192,56,60);
+    background: -webkit-radial-gradient(bottom center,rgba(192,56,60,1),rgba(100,21,68,1));
+    background: radial-gradient(at bottom center,rgba(192,56,60,1),rgba(100,21,68,1));
+}
+
+.modal-title{
+    font-family: 'Dancing Script', cursive;
+    font-size: 2em;
+}
+
+table{
+    color: white;
+}
+
+h2{
+    color: white;
+}

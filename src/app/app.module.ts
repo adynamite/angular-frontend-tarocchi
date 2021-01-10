@@ -22,6 +22,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { TokenInterceptor } from './token-interceptor';
 import { UserProfileComponent } from './user-profile/user-profile.component';
+import { ReadingListComponent } from './reading-list/reading-list.component';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { UserProfileComponent } from './user-profile/user-profile.component';
     SelectCardComponent,
     StoryComponent,
     UserProfileComponent,
+    ReadingListComponent,
   ],
   imports: [
     BrowserModule,

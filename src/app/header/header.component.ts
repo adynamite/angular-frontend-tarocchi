@@ -26,6 +26,10 @@ export class HeaderComponent implements OnInit {
     this.router.navigateByUrl('/user-profile/' + this.username);
   }
 
+  vaiAlleLetture(){
+    this.router.navigateByUrl('user-profile/'+this.username+'/letture');
+  }
+
   logout() {
     this.authService.logout();
     this.isLoggedIn = false;

@@ -2,10 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { CookieService } from 'ngx-cookie-service';
 import { LocalStorageService } from 'ngx-webstorage';
+import {ReadingRequestPayload} from './reading.payload';
+import { AuthService } from '../authservice/auth.service';
 
 
 import { tarotCards, TarotCards } from '../data';
 declare var $: any;
+
 
 @Component({
   selector: 'app-select-card',
@@ -15,12 +18,26 @@ declare var $: any;
 
 export class SelectCardComponent implements OnInit {
 
+  readingRequestPayload: ReadingRequestPayload;
+
   tarokki = tarotCards;
   
   
 
-  constructor(private router: Router,private cookie: CookieService,private localStorage: LocalStorageService ) {
-   
+  constructor(private router: Router,private cookie: CookieService,
+    private localStorage: LocalStorageService, private authService:AuthService ) {
+    
+    this.readingRequestPayload = {
+      email: '',
+      letturaPassato:'', 
+      letturaPresente:'',
+      letturaFuturo:'',
+      cartaPassato:'', 
+      cartaPresente:'', 
+      cartaFuturo:'',
+    };
+
+
    }
 
 
@@ -78,11 +95,7 @@ export class SelectCardComponent implements OnInit {
     
   }
 
-    /*// When three cards are selected, navigate to reading
-    if (this.count == 3) {
-      this.router.navigate(['/reading'],  { queryParams: { 'reading': this.reading } })
-    }*/
-
+   
 
 
   flip() {
@@ -101,6 +114,28 @@ export class SelectCardComponent implements OnInit {
   letturaPassato=this.tarokkiCasuali[0].letturaPassato;
   letturaPresente=this.tarokkiCasuali[1].letturaPresente;
   letturaFuturo=this.tarokkiCasuali[2].letturaFuturo;
+
+
+  reading(){
+    this.readingRequestPayload.email=this.authService.getEmail();
+    this.readingRequestPayload.cartaPassato=this.nomePassato;
+    this.readingRequestPayload.cartaPresente=this.nomePresente;
+    this.readingRequestPayload.cartaFuturo=this.nomeFuturo;
+    this.readingRequestPayload.letturaPassato=this.letturaPassato;
+    this.readingRequestPayload.letturaPresente=this.letturaPresente;
+    this.readingRequestPayload.letturaFuturo=this.letturaFuturo;
+ console.log(this.readingRequestPayload.email);
+
+ this.authService.reading(this.readingRequestPayload)
+ .subscribe(data => {
+   this.router.navigate(['/lettura'],
+     { queryParams: { reading: 'true' } });
+ }, error => {
+   console.log(error);
+   
+ });
+  }
+
 
   getRandomCards() {
     let taroks = [];
